@@ -1,0 +1,58 @@
+// Nodo generico para lista enlazadda simple
+	public class Nodo<T>{
+		public T Dato;
+		public Nodo<T> Siguiente;
+		
+		public Nodo(T dato){
+			Dato = dato;
+			Siguiente = null;
+			}
+	}
+	
+//  Lista enlazada simple
+	public class ListaEnlazada<T>{
+	
+		private Nodo<T> cabeza;
+		public int Conteo {get; private set;}
+		
+		public ListaEnlazada(){
+			cabeza = null;
+			Conteo = 0;
+		}
+		
+// Insertar al final O(n)
+	public void InsertarFinal(T valor){
+		var nuevo = new Nodo<T>(valor);
+		if (cabeza == null){
+		cabeza = nuevo;
+		}
+		else{
+			var actual = cabeza;
+			while(actual.Siguiente != null){
+				actual = actual.Siguiente;
+			}
+				
+			actual.Siguiente = nuevo;
+		}
+		Conteo++;
+	}
+// Recorre y ejecuta una accion
+public void Recorrer(Action<T> accion){
+var actual = cabeza;
+while (actual != null){
+	accion(actual.Dato);
+	actual = actual.Siguiente;
+	
+	}
+}
+}
+		
+void Main()
+{
+	ListaEnlazada<int> i = new ListaEnlazada<int>();
+	i.InsertarFinal(10);
+	i.InsertarFinal(20);
+	i.InsertarFinal(30);
+	i.InsertarFinal(40);
+	i.Recorrer((dat)=>{Console.WriteLine(dat);});
+}
