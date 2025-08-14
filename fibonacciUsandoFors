@@ -1,37 +1,28 @@
 void Main()
 {
-	int n = 3;
+	int n = 10;
 	int result = fibonacci(n);
 	Console.Write(result);
 }
 
 int fibonacci(int n){
-	int aux = 0;
+	int presente = 0;
 	int pasado = 0;
-	int suma = 0;
+	int futuro = 0;
 	for (int i = 1;i <=n; ++i){
 		if ( i == 1 ){
-			pasado = aux; // 0
-			aux=+ 0; // 0
-	
-			suma = aux + pasado; // 0
-			return suma;
+			futuro = 1; // 0
 			
 		} else if (i== 2){
-			pasado = aux; // 1
-			aux=+ 1; // 1
-			
-			suma = aux + pasado; // 2
-			return suma;
+			presente = futuro; //1
+			futuro = pasado + presente;
 			
 		} else{
-			
-			suma = aux + pasado; // 1
+			pasado = presente; //2
+			presente = futuro; //3
+			futuro = pasado + presente; //5
 			
 		}
-		
-		--n;
 	}
-	return suma;
+	return presente;
 }
-// Define other methods and classes here
