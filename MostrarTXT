@@ -1,0 +1,26 @@
+void Main()
+{
+		string fullPathFile= @"C:\Users\ucb\Documents";
+	
+		try{
+	
+		using (StreamReader reader = new StreamReader(fullPathFile)){
+			string line;
+	
+			while((line = reader.ReadLine()) != null){
+	
+				Console.WriteLine(line);
+				}
+			}
+		}
+		
+	
+	
+	catch (Exception ex){
+	
+	Console.WriteLine("Ocurrio un error al ller el archivo");
+	
+	Console.WriteLine (ex.Message);
+		}
+	
+}
