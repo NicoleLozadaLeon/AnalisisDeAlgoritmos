@@ -1,0 +1,22 @@
+void Main()
+{
+    List<int> numeros = new List<int> { 10, 20, 30, 40, 50 };
+    var suma = numeros.Sum();
+    var promedio = numeros.Average();
+    
+    $"Suma: {suma}, Promedio: {promedio}".Dump();
+	int sum = 0;
+	for(int i = 0; i < numeros.Count(); i++){
+		sum += numeros[i];
+	}
+	sum.Dump();
+	sum = 0;
+	foreach(var x in numeros){
+		sum += x;
+		
+	}
+	sum.Dump();
+	
+	var aux = numeros.Where(x => x > 20).ToList();
+	aux.Dump();
+}
